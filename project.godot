@@ -11,5 +11,5 @@ config_version=5
 [application]
 
 config/name="InfoGameFr"
+run/main_scene="uid://camf738rhqsrd"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
