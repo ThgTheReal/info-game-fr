@@ -13,10 +13,53 @@ extends CharacterBody3D
 var pitch := 0.0        # vertikale Rotation
 var side_offset := 0.0  # horizontale minimale Abweichung
 
+
+@onready var magic_popup := $CanvasLayer/MagicPopup
+
+
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	magic_popup.visible = false
+
+
+var magic = false
+
+func toggle_magic_popup():
+	magic_popup.visible = !magic_popup.visible
+
+	if magic_popup.visible:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		magic_popup.draw_area.reset_drawing()
+		set_physics_process(false)
+		magic = true
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		set_physics_process(true)
+		magic = false
+
+func _on_button_pressed() -> void:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		set_physics_process(true)
+		magic = false
+		
+		
+		
+		
+func _exit_tree() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
 
 func _input(event):
+	if event.is_action_released("open_magic") :
+		toggle_magic_popup()
+		
+	
+	
+	if magic_popup.visible:
+		return
+	
+	
 	if event is InputEventMouseMotion:
 		# Spieler dreht sich nach links/rechts (Yaw)
 		rotate_y(-event.relative.x * mouse_sensitivity)
