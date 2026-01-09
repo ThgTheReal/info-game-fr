@@ -4,7 +4,7 @@ extends CharacterBody3D
 @export var jump_velocity := 4.0
 @export var mouse_sensitivity := 0.002
 
-@export var max_side_pitch := 0.15 # in radians, ~8,6° horizontal max
+@export var max_side_pitch := 0.3 # in radians, ~17,2° horizontal max
 @export var side_lerp_speed := 5.0 # wie schnell sich die Kamera zurückstellt
 
 @onready var camera_arm := $CameraArm  # SpringArm3D

@@ -2,7 +2,6 @@ extends Control
 
 @onready var draw_area: Control = $DrawArea
 @onready var reference: TextureRect = $Reference
-@onready var confirm_btn: Button = $ConfirmBtn
 
 func _ready() -> void:
 	visible = false
