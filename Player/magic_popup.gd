@@ -22,9 +22,9 @@ func _on_confirm_btn_pressed() -> void:
 	var score: float = compare_loose(player_img, ref_img)
 	print("Score:", score)
 
-	if score < 0.21:
+	if score < 0.30:
 		print("Perfekt")
-	elif score < 0.40:
+	elif score < 0.50:
 		print("Nicht Schlecht")
 	elif score < 0.70:
 		print("Du has tnoch viel zu lernen")
