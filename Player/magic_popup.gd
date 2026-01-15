@@ -26,7 +26,7 @@ func _on_confirm_btn_pressed() -> void:
 		print("Perfekt")
 	elif score < 0.40:
 		print("Nicht Schlecht")
-	elif score < 0.80:
+	elif score < 0.70:
 		print("Du has tnoch viel zu lernen")
 	else:
 		print("Miserabel")

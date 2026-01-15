@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c52blh7pan7tv"]
 
-[ext_resource type="Script" uid="uid://0wjuc2oqc761" path="res://Player/player.gd" id="1_q3lat"]
+[ext_resource type="Script" uid="uid://0wjuc2oqc761" path="res://Player/Player.gd" id="1_q3lat"]
 [ext_resource type="ArrayMesh" uid="uid://crnr1y1eliqej" path="res://Player/Cat.obj" id="2_q3lat"]
 [ext_resource type="Script" uid="uid://by72dh75xvov6" path="res://Player/magic_popup.gd" id="3_tok1r"]
 [ext_resource type="Texture2D" uid="uid://twi6l557qqhi" path="res://Unbenannt.png" id="4_8g4oa"]
@@ -32,6 +32,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, -17)
 
 [node name="MagicPopup" type="Control" parent="CanvasLayer"]
 layout_mode = 3
+anchors_preset = 0
 offset_top = 1.0
 offset_right = 415.0
 offset_bottom = 403.0
