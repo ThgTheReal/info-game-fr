@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8pv11ikatjwa"]
+
+[ext_resource type="Script" uid="uid://i63c00jckaet" path="res://Player/StarkeKatze/CatPlayer.gd" id="1_y7gwd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vep5y"]
+size = Vector2(50, 50)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0kvt1"]
+domain_warp_type = 2
+domain_warp_amplitude = 100.0
+domain_warp_frequency = 1.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_octaves = 1
+domain_warp_fractal_lacunarity = 10.0
+domain_warp_fractal_gain = 10.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y7krr"]
+noise = SubResource("FastNoiseLite_0kvt1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0kvt1"]
+size = Vector2(60, 6)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_mask = 3
+script = ExtResource("1_y7gwd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vep5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = SubResource("NoiseTexture2D_y7krr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_0kvt1")
+
+[node name="ClimbL" type="RayCast2D" parent="."]
+target_position = Vector2(-34, 0)
+collision_mask = 2
+
+[node name="ClimbR" type="RayCast2D" parent="."]
+target_position = Vector2(34, 1)
+collision_mask = 2
