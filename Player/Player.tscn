@@ -7,18 +7,18 @@
 [ext_resource type="Script" uid="uid://bkhen11iti43q" path="res://Player/draw_area.gd" id="4_ddoul"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8g4oa"]
-radius = 28.725586
-height = 74.71948
+radius = 0.001
+height = 50.1051
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_q3lat")
 
 [node name="Cat" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.371139e-09, 0, 0, 0)
+transform = Transform3D(-4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0, 0, 0)
 mesh = ExtResource("2_q3lat")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.9099896, -4.317088)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.267258, -1.81143, 0.183911)
 shape = SubResource("CapsuleShape3D_8g4oa")
 
 [node name="CameraArm" type="SpringArm3D" parent="."]
@@ -47,8 +47,8 @@ anchor_left = -0.952
 anchor_top = -0.289
 anchor_right = -0.952
 anchor_bottom = -0.289
-offset_left = 395.08002
-offset_top = 118.490005
+offset_left = 395.08
+offset_top = 118.49
 offset_right = 651.08
 offset_bottom = 374.49
 texture = ExtResource("4_8g4oa")
@@ -56,24 +56,24 @@ texture = ExtResource("4_8g4oa")
 [node name="DrawArea" type="Control" parent="CanvasLayer/MagicPopup"]
 layout_mode = 1
 anchor_left = -0.952
-anchor_top = -0.29000002
+anchor_top = -0.29
 anchor_right = -0.952
-anchor_bottom = -0.29000002
-offset_left = 395.08002
-offset_top = 118.90001
+anchor_bottom = -0.29
+offset_left = 395.08
+offset_top = 118.9
 offset_right = 651.08
-offset_bottom = 374.90002
+offset_bottom = 374.9
 script = ExtResource("4_ddoul")
 
 [node name="Button" type="Button" parent="CanvasLayer/MagicPopup"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.95300007
-anchor_top = -0.28300002
-anchor_right = -0.95300007
-anchor_bottom = -0.28300002
+anchor_left = -0.953
+anchor_top = -0.283
+anchor_right = -0.953
+anchor_bottom = -0.283
 offset_left = 657.495
-offset_top = 119.03001
+offset_top = 119.03
 offset_right = 711.495
 offset_bottom = 150.03
 text = "Finish"
