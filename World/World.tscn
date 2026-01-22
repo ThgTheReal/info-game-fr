@@ -8,7 +8,7 @@
 background_mode = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62w18"]
-size = Vector2(573, 513)
+size = Vector2(2330.5, 67.75)
 
 [sub_resource type="Gradient" id="Gradient_8a836"]
 offsets = PackedFloat32Array(0, 0.36666667, 0.61333334, 0.81333333, 1)
@@ -27,6 +27,7 @@ script = ExtResource("1_8a836")
 [node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("2_y6flb")
 cloud_texture = ExtResource("3_mlekv")
+cloud_count = 1000
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_o14yy")
@@ -36,10 +37,10 @@ position = Vector2(-159, 280)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(280, 333)
+position = Vector2(1158.75, 31.125)
 shape = SubResource("RectangleShape2D_62w18")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(279, 334)
-scale = Vector2(1.1191406, 1.0039064)
+position = Vector2(1153.75, 28.999985)
+scale = Vector2(4.520508, 0.17187503)
 texture = SubResource("NoiseTexture2D_3f78f")
