@@ -12,9 +12,10 @@ const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
 	RayL.enabled = true
-
+	$AnimatedSprite2D.play("cat walk")
 func _physics_process(delta: float) -> void:
 	
+
 	
 	
 	

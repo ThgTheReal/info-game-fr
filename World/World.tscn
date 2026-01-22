@@ -1,23 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca5ojkixell6m"]
+[gd_scene load_steps=11 format=3 uid="uid://ca5ojkixell6m"]
 
 [ext_resource type="Script" uid="uid://ctxtpwd6q8l3d" path="res://World/world.gd" id="1_8a836"]
 [ext_resource type="Shader" uid="uid://cwq32hdololml" path="res://World/Sky.gdshader" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://di50yg0qv40r1" path="res://Player/StarkeKatze/pixil-frame-0(1).png" id="3_mlekv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fj7yv"]
 shader = ExtResource("1_f3sb7")
-shader_parameter/wind_offset = 0.0
-shader_parameter/sun_position = Vector3(-1, 5, 1)
-shader_parameter/noise_2D_factor_slope = 0.25
-shader_parameter/noise_2D_factor_detail = 0.6
-shader_parameter/wind_sheer_1D = 0.5
-shader_parameter/wind_sheer_2D = 0.5
-shader_parameter/draw_cloud_base = false
-shader_parameter/wind_sheer_texture_detail = 0.0
-shader_parameter/wind_sheer_texture_normal = 0.0
-shader_parameter/cloud_sky_influence = 0.0
-shader_parameter/height_shade_factor = 0.5
-shader_parameter/occlusion_strength = 0.2
-shader_parameter/steps = 200
 
 [sub_resource type="Sky" id="Sky_tlwt5"]
 sky_material = SubResource("ShaderMaterial_fj7yv")
@@ -48,8 +36,6 @@ script = ExtResource("1_8a836")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_aqk2v")
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="WorldEnvironment"]
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
 
@@ -79,10 +65,25 @@ position = Vector2(1141, 12)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2(-305.5, -179.99997)
+position = Vector2(271, -167)
 shape = SubResource("RectangleShape2D_62w18")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
-position = Vector2(-306.5, -178.99997)
+position = Vector2(274, -171)
 scale = Vector2(1.1191406, 1.0039064)
 texture = SubResource("NoiseTexture2D_3f78f")
+
+[node name="PixilFrame0(1)" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(-458, 171)
+scale = Vector2(0.88671875, 0.8046875)
+texture = ExtResource("3_mlekv")
+
+[node name="PixilFrame0(1)" type="Sprite2D" parent="StaticBody2D3/PixilFrame0(1)"]
+position = Vector2(245.85023, 93.20389)
+scale = Vector2(0.9191302, 0.97030485)
+texture = ExtResource("3_mlekv")
+
+[node name="PixilFrame0(1)" type="Sprite2D" parent="StaticBody2D3/PixilFrame0(1)/PixilFrame0(1)"]
+position = Vector2(238.03394, 131.91728)
+scale = Vector2(0.88671875, 0.8046875)
+texture = ExtResource("3_mlekv")
