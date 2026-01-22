@@ -15,7 +15,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	
+	# GDScript (z.B. in _process)
+	if $Sky:
+		var shader_material = $Sky.material as ShaderMaterial
+		shader_material.set_shader_parameter("player_velocity", velocity)
+
 	
 	
 	# Add the gravity.
