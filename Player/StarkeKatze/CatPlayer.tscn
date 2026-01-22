@@ -1,35 +1,85 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8pv11ikatjwa"]
+[gd_scene load_steps=14 format=3 uid="uid://b8pv11ikatjwa"]
 
 [ext_resource type="Script" uid="uid://i63c00jckaet" path="res://Player/StarkeKatze/CatPlayer.gd" id="1_y7gwd"]
+[ext_resource type="Texture2D" uid="uid://cnlrhb6tcgghi" path="res://Player/StarkeKatze/ChatGPT_Image_22._Jan._2026__10_41_22-removebg-preview.png" id="2_y7krr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vep5y"]
-size = Vector2(50, 50)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0kvt1"]
-domain_warp_type = 2
-domain_warp_amplitude = 100.0
-domain_warp_frequency = 1.0
-domain_warp_fractal_type = 2
-domain_warp_fractal_octaves = 1
-domain_warp_fractal_lacunarity = 10.0
-domain_warp_fractal_gain = 10.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y7krr"]
-noise = SubResource("FastNoiseLite_0kvt1")
+size = Vector2(100, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kvt1"]
 size = Vector2(60, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ceuw"]
+atlas = ExtResource("2_y7krr")
+region = Rect2(71, 104, 115, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0c3k"]
+atlas = ExtResource("2_y7krr")
+region = Rect2(186, 104, 115, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfxgt"]
+atlas = ExtResource("2_y7krr")
+region = Rect2(301, 104, 115, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qoke"]
+atlas = ExtResource("2_y7krr")
+region = Rect2(416, 104, 115, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lelqh"]
+atlas = ExtResource("2_y7krr")
+region = Rect2(71, 193, 115, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss3fu"]
+atlas = ExtResource("2_y7krr")
+region = Rect2(186, 193, 115, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3634r"]
+atlas = ExtResource("2_y7krr")
+region = Rect2(301, 193, 115, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4y8l"]
+atlas = ExtResource("2_y7krr")
+region = Rect2(416, 193, 115, 89)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3634r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ceuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0c3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfxgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qoke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lelqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss3fu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3634r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4y8l")
+}],
+"loop": true,
+"name": &"cat walk",
+"speed": 9.0
+}]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_y7gwd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 9.5)
 shape = SubResource("RectangleShape2D_vep5y")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
-texture = SubResource("NoiseTexture2D_y7krr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
@@ -43,11 +93,16 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_0kvt1")
 
 [node name="ClimbL" type="RayCast2D" parent="."]
-position = Vector2(0, -25)
-target_position = Vector2(-32, 0)
+target_position = Vector2(1, -280)
 collision_mask = 2
 
 [node name="ClimbR" type="RayCast2D" parent="."]
-position = Vector2(0, -25)
-target_position = Vector2(32, 0)
+target_position = Vector2(-1, -181)
 collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, 0)
+sprite_frames = SubResource("SpriteFrames_3634r")
+animation = &"cat walk"
+frame_progress = 0.820344
