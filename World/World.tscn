@@ -1,11 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://ca5ojkixell6m"]
 
 [ext_resource type="Script" uid="uid://ctxtpwd6q8l3d" path="res://World/world.gd" id="1_8a836"]
-[ext_resource type="Script" uid="uid://dmrxmnnvd8p72" path="res://World/Sky.gd" id="2_y6flb"]
-[ext_resource type="Texture2D" uid="uid://b28hda3jtal0t" path="res://pixil-frame-0(2).png" id="3_mlekv"]
-
-[sub_resource type="Environment" id="Environment_o14yy"]
-background_mode = 2
+[ext_resource type="Script" uid="uid://bea5l4qpapix2" path="res://World/clouds_bg.gd" id="2_mlekv"]
+[ext_resource type="Script" uid="uid://ctxxn2xpormhr" path="res://World/clouds_layer_far.gd" id="3_mlekv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62w18"]
 size = Vector2(2330.5, 67.75)
@@ -21,16 +18,11 @@ noise_type = 3
 noise = SubResource("FastNoiseLite_j8job")
 color_ramp = SubResource("Gradient_8a836")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6flb"]
+load_path = "res://.godot/imported/pixil-frame-0(2).png-5822c6eb8494c6407bfe1c5b62c42373.ctex"
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_8a836")
-
-[node name="Node2D" type="Node2D" parent="."]
-script = ExtResource("2_y6flb")
-cloud_texture = ExtResource("3_mlekv")
-cloud_count = 1000
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_o14yy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-159, 280)
@@ -44,3 +36,31 @@ shape = SubResource("RectangleShape2D_62w18")
 position = Vector2(1153.75, 28.999985)
 scale = Vector2(4.520508, 0.17187503)
 texture = SubResource("NoiseTexture2D_3f78f")
+
+[node name="CloudsBG" type="ParallaxBackground" parent="."]
+script = ExtResource("2_mlekv")
+
+[node name="CloudsLayerFar" type="ParallaxLayer" parent="CloudsBG"]
+motion_scale = Vector2(0.05, 0.05)
+script = ExtResource("3_mlekv")
+
+[node name="Cloudsprite" type="Sprite2D" parent="CloudsBG/CloudsLayerFar"]
+position = Vector2(1504, 38.999996)
+scale = Vector2(0.05, 0.05)
+texture = SubResource("CompressedTexture2D_y6flb")
+
+[node name="CloudsLayerMid" type="ParallaxLayer" parent="CloudsBG"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Cloudsprite" type="Sprite2D" parent="CloudsBG/CloudsLayerMid"]
+position = Vector2(326, 17.999992)
+scale = Vector2(0.05, 0.05)
+texture = SubResource("CompressedTexture2D_y6flb")
+
+[node name="CloudsLayerNear" type="ParallaxLayer" parent="CloudsBG"]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Cloudsprite" type="Sprite2D" parent="CloudsBG/CloudsLayerNear"]
+position = Vector2(831, -6.0000076)
+scale = Vector2(0.05, 0.05)
+texture = SubResource("CompressedTexture2D_y6flb")
