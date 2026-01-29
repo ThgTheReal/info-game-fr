@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://rwnntaflv1u7"]
+[gd_scene load_steps=3 format=3 uid="uid://rwnntaflv1u7"]
 
+[ext_resource type="Script" uid="uid://ufj48xyh7oix" path="res://World/WorldElements/cloud.gd" id="1_3bv6c"]
 [ext_resource type="Texture2D" uid="uid://bsyg7vm4sgc44" path="res://World/WorldElements/pixil-frame-0(2)(1).png" id="1_ajdws"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_3bv6c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

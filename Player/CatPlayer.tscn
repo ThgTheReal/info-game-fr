@@ -1,7 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b8pv11ikatjwa"]
 
 [ext_resource type="Script" uid="uid://i63c00jckaet" path="res://Player/CatPlayer.gd" id="1_y7gwd"]
-[ext_resource type="Texture2D" uid="uid://cnflmn7tohb1q" path="res://Player/ChatGPT_Image_22._Jan._2026__10_41_22-removebg-preview.png" id="2_y7krr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vep5y"]
 size = Vector2(100, 57)
@@ -9,36 +8,39 @@ size = Vector2(100, 57)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kvt1"]
 size = Vector2(60, 6)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y7gwd"]
+load_path = "res://.godot/imported/ChatGPT_Image_22._Jan._2026__10_41_22-removebg-preview.png-7ec848bfe9129caafaf8f8aeb3d13416.ctex"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ceuw"]
-atlas = ExtResource("2_y7krr")
+atlas = SubResource("CompressedTexture2D_y7gwd")
 region = Rect2(71, 104, 115, 89)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0c3k"]
-atlas = ExtResource("2_y7krr")
+atlas = SubResource("CompressedTexture2D_y7gwd")
 region = Rect2(186, 104, 115, 89)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lfxgt"]
-atlas = ExtResource("2_y7krr")
+atlas = SubResource("CompressedTexture2D_y7gwd")
 region = Rect2(301, 104, 115, 89)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7qoke"]
-atlas = ExtResource("2_y7krr")
+atlas = SubResource("CompressedTexture2D_y7gwd")
 region = Rect2(416, 104, 115, 89)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lelqh"]
-atlas = ExtResource("2_y7krr")
+atlas = SubResource("CompressedTexture2D_y7gwd")
 region = Rect2(71, 193, 115, 89)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ss3fu"]
-atlas = ExtResource("2_y7krr")
+atlas = SubResource("CompressedTexture2D_y7gwd")
 region = Rect2(186, 193, 115, 89)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3634r"]
-atlas = ExtResource("2_y7krr")
+atlas = SubResource("CompressedTexture2D_y7gwd")
 region = Rect2(301, 193, 115, 89)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4y8l"]
-atlas = ExtResource("2_y7krr")
+atlas = SubResource("CompressedTexture2D_y7gwd")
 region = Rect2(416, 193, 115, 89)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3634r"]
@@ -106,3 +108,9 @@ position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_3634r")
 animation = &"cat walk"
 frame_progress = 0.820344
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -46.0
+offset_top = -19.0
+offset_right = 55.0
+offset_bottom = 38.0

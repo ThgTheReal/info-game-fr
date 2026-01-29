@@ -33,7 +33,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 		
-	print(direction)
 	if direction != 0:
 		$AnimatedSprite2D.play()
 	

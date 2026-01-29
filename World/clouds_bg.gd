@@ -42,10 +42,24 @@ func generateClouds():  #mit Ki suport
 	for i in 10:
 		for CloudLayer in get_children():
 			if CloudLayer is ParallaxLayer:
-				var new_cloud = Cloud.instantiate()
+				var new_cloud:CloudType1 = Cloud.instantiate()
 				
-				var random_x = randf_range(-2048, 2048) 
-				var random_y = randf_range(75, 200)  
+				var random_x = randf_range(-2500, 2500) 
+				var random_y
+				
+				
+				if CloudLayer == $CloudsLayerFar:
+					new_cloud.scale = Vector2(0.6,0.6)
+					random_y = randfn(0,0)
+				
+				elif CloudLayer == $CloudsLayerMid:
+					new_cloud.scale = Vector2(0.8,0.8)
+					random_y = randfn(0,0)
+				
+				else:
+					new_cloud.scale = Vector2(1,1)
+					random_y = randfn(100,100)
+					
 				
 				new_cloud.position = Vector2(random_x, random_y)
 			
