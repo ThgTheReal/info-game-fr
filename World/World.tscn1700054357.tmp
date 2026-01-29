@@ -27,11 +27,11 @@ position = Vector2(-159, 280)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(168, 55)
+position = Vector2(1158.75, 31.125)
 shape = SubResource("RectangleShape2D_62w18")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(186.99988, 39.999985)
+position = Vector2(1153.75, 28.999985)
 scale = Vector2(4.520508, 0.17187503)
 texture = SubResource("NoiseTexture2D_3f78f")
 

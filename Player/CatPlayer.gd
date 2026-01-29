@@ -15,10 +15,6 @@ func _ready() -> void:
 	$AnimatedSprite2D.play("cat walk")
 func _physics_process(delta: float) -> void:
 	
-
-	
-	
-	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -32,11 +28,21 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("Left", "Right")
 	if direction:
 		velocity.x = direction * SPEED
+		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+		
+	print(direction)
+	if direction != 0:
+		$AnimatedSprite2D.play()
 	
-	
-	
+	if direction == 1:
+		$AnimatedSprite2D.flip_h = false
+	elif  direction == -1:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.stop()
 	
 	Klettern()
 	

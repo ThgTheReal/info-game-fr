@@ -1,6 +1,6 @@
 extends ParallaxBackground
 
-@onready var Cloud = preload("res://cloud.tscn").instantiate()
+@onready var Cloud = preload("res://World/WorldElements/cloud.tscn")
 
 @export var drift_speed := Vector2(50.0, 0.0) # Grundbewegung
 @export var float_amplitude := 1.0            # Schweben
@@ -9,23 +9,10 @@ extends ParallaxBackground
 var time := 0.0
 var base_offset := Vector2.ZERO
 
-func _ready() -> void:
-	for CloudLayer in get_children():
-		if CloudLayer is ParallaxLayer:
-			# 1. Neue Instanz der Wolke erstellen
-			var new_cloud = Cloud
-			
-			# 2. Zufällige Position definieren
-			# Hier musst du deine gewünschten Grenzen angeben (z.B. Bildschirmgröße)
-			var random_x = randf_range(0, 1152) # Beispielbreite
-			var random_y = randf_range(0, 648)  # Beispielhöhe
-			
-			new_cloud.position = Vector2(random_x, random_y)
-			
-			# 3. Wolke als Kind hinzufügen
-			CloudLayer.add_child(new_cloud)
-	pass
 
+
+func _ready() -> void:
+	generateClouds()
 
 func _process(delta: float) -> void:
 	time += delta
@@ -38,4 +25,29 @@ func _process(delta: float) -> void:
 
 			# Pixel-Art-Schutz
 			ParaLayer.motion_offset = cloud_offset.round()
+	pass
+
+
+
+
+func CloudCycle():   #wenn wolken zu weit vom player entfernt gehen sei zurück zum start
+	for Childs in get_children():
+		for LayerClouds in Childs.get_children():
+			var PLAYER = preload("res://Player/CatPlayer.tscn").instantiate()
+			
+
+
+
+func generateClouds():  #mit Ki suport
+	for i in 10:
+		for CloudLayer in get_children():
+			if CloudLayer is ParallaxLayer:
+				var new_cloud = Cloud.instantiate()
+				
+				var random_x = randf_range(-2048, 2048) 
+				var random_y = randf_range(75, 200)  
+				
+				new_cloud.position = Vector2(random_x, random_y)
+			
+				CloudLayer.add_child(new_cloud)
 	pass

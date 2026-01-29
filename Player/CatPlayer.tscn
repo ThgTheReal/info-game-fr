@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://b8pv11ikatjwa"]
 
-[ext_resource type="Script" uid="uid://i63c00jckaet" path="res://Player/StarkeKatze/CatPlayer.gd" id="1_y7gwd"]
-[ext_resource type="Texture2D" uid="uid://cnlrhb6tcgghi" path="res://Player/StarkeKatze/ChatGPT_Image_22._Jan._2026__10_41_22-removebg-preview.png" id="2_y7krr"]
+[ext_resource type="Script" uid="uid://i63c00jckaet" path="res://Player/CatPlayer.gd" id="1_y7gwd"]
+[ext_resource type="Texture2D" uid="uid://cnflmn7tohb1q" path="res://Player/ChatGPT_Image_22._Jan._2026__10_41_22-removebg-preview.png" id="2_y7krr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vep5y"]
 size = Vector2(100, 57)
