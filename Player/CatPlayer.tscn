@@ -56,8 +56,16 @@ shape = SubResource("RectangleShape2D_y7gwd")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 39.0
+offset_top = 47.0
+offset_right = 79.0
+offset_bottom = 87.0
+value = 100.0
+rounded = true
+fill_mode = 4
+tint_under = Color(0, 0, 0, 1)
+tint_over = Color(1, 0.20392157, 1, 1)
+tint_progress = Color(1, 0.3372549, 1, 1)
 
 [connection signal="body_entered" from="Area2D2" to="." method="CheckIfEnemieInAtack"]
 [connection signal="body_exited" from="Area2D2" to="." method="EnemieLeaveArea"]
