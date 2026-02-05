@@ -53,5 +53,11 @@ collision_mask = 4
 position = Vector2(-1, 5)
 shape = SubResource("RectangleShape2D_y7gwd")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="body_entered" from="Area2D2" to="." method="CheckIfEnemieInAtack"]
 [connection signal="body_exited" from="Area2D2" to="." method="EnemieLeaveArea"]
