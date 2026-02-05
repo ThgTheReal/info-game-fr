@@ -30,13 +30,6 @@ func _process(delta: float) -> void:
 
 
 
-func CloudCycle():   #wenn wolken zu weit vom player entfernt gehen sei zurück zum start
-	for Childs in get_children():
-		for LayerClouds in Childs.get_children():
-			var PLAYER = preload("res://Player/CatPlayer.tscn").instantiate()
-			
-
-
 
 func generateClouds():  #mit Ki suport
 	for i in 10:

@@ -45,18 +45,18 @@ func _physics_process(delta: float) -> void:
 
 
 
-func TextureAnimation(direction):
-			
-	if direction != 0:
-		$AnimatedSprite2D.play()
-	
-	if direction == 1:
-		$AnimatedSprite2D.flip_h = false
-	elif  direction == -1:
-		$AnimatedSprite2D.flip_h = true
-	else:
-		$AnimatedSprite2D.stop()
-	
+#func TextureAnimation(direction):
+#			
+#	if direction != 0:
+#		$AnimatedSprite2D.play()
+#	
+#	if direction == 1:
+#		$AnimatedSprite2D.flip_h = false
+#	elif  direction == -1:
+#		$AnimatedSprite2D.flip_h = true
+#	else:
+#		$AnimatedSprite2D.stop()
+#	
 
 func Klettern():
 	if stamina < 0:
