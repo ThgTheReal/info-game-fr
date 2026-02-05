@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca5ojkixell6m"]
+[gd_scene load_steps=8 format=3 uid="uid://ca5ojkixell6m"]
 
 [ext_resource type="Script" uid="uid://ctxtpwd6q8l3d" path="res://World/world.gd" id="1_8a836"]
 [ext_resource type="Script" uid="uid://bea5l4qpapix2" path="res://World/clouds_bg.gd" id="2_mlekv"]
+[ext_resource type="PackedScene" uid="uid://dru26fwg2kmvb" path="res://Enemies/Enemie_Jannik.tscn" id="3_mlekv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_62w18"]
 size = Vector2(2330.5, 67.75)
@@ -44,3 +45,6 @@ motion_scale = Vector2(0.1, 0.1)
 
 [node name="CloudsLayerNear" type="ParallaxLayer" parent="CloudsBG"]
 motion_scale = Vector2(0.2, 0.2)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_mlekv")]
+position = Vector2(584, -84)
