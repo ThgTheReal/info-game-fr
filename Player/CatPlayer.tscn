@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://i63c00jckaet" path="res://Player/CatPlayer.gd" id="1_y7gwd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vep5y"]
-size = Vector2(102, 58)
+size = Vector2(102, 57)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0kvt1"]
 size = Vector2(60, 6)
@@ -16,7 +16,7 @@ collision_mask = 3
 script = ExtResource("1_y7gwd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_vep5y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -29,22 +29,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_0kvt1")
 
-[node name="ClimbL" type="RayCast2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-target_position = Vector2(62, 0)
-collision_mask = 2
-
-[node name="ClimbR" type="RayCast2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-target_position = Vector2(-63, 0)
-collision_mask = 2
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -51.0
-offset_top = -24.0
-offset_right = 50.0
-offset_bottom = 33.0
-
 [node name="Area2D2" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
@@ -53,9 +37,15 @@ collision_mask = 4
 position = Vector2(-1, 5)
 shape = SubResource("RectangleShape2D_y7gwd")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -53.0
+offset_top = -23.0
+offset_right = 48.0
+offset_bottom = 34.0
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 offset_left = 39.0
 offset_top = 47.0
 offset_right = 79.0
@@ -66,6 +56,18 @@ fill_mode = 4
 tint_under = Color(0, 0, 0, 1)
 tint_over = Color(1, 0.20392157, 1, 1)
 tint_progress = Color(1, 0.3372549, 1, 1)
+
+[node name="ClimbL" type="RayCast2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 31)
+target_position = Vector2(52, 0)
+collision_mask = 2
+
+[node name="ClimbR" type="RayCast2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 31)
+target_position = Vector2(-56, 0)
+collision_mask = 2
 
 [connection signal="body_entered" from="Area2D2" to="." method="CheckIfEnemieInAtack"]
 [connection signal="body_exited" from="Area2D2" to="." method="EnemieLeaveArea"]

@@ -82,10 +82,13 @@ func Klettern():
 	
 	if not is_on_floor():
 		if (RayL.is_colliding()  or RayR.is_colliding()) and Input.is_action_pressed("Jump"):
-			velocity.y = -350
+			velocity.y = -150
 			IsKlettern = true
-		elif RayL.is_colliding() or RayR.is_colliding() and !Input.is_action_pressed("Jump"):
+		elif RayL.is_colliding() or RayR.is_colliding() and !Input.is_action_pressed("Jump") and !Input.is_action_pressed("Sneak"):
 			velocity.y = 0
+			IsKlettern = true
+		elif RayL.is_colliding() or RayR.is_colliding() and Input.is_action_pressed("Sneak") and !Input.is_action_pressed("Jump"):
+			velocity.y = 200
 			IsKlettern = true
 	if is_on_floor():
 		IsKlettern = false
