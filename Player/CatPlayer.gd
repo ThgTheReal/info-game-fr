@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 class_name Player
 
-var health = 100
+@export var health = 100
+@export var stamina = 100
+
 
 
 const SPEED = 300.0
@@ -12,8 +14,7 @@ const JUMP_VELOCITY = -400.0
 @onready var RayR = $ClimbR
 
 func _ready() -> void:
-	RayL.enabled = true
-	$AnimatedSprite2D.play("cat walk")
+	pass
 func _physics_process(delta: float) -> void:
 	
 	# Add the gravity.
@@ -33,7 +34,19 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-		
+	
+	#TextureAnimation(direction)
+	
+	Klettern()
+	
+	
+	
+	move_and_slide()
+
+
+
+func TextureAnimation(direction):
+			
 	if direction != 0:
 		$AnimatedSprite2D.play()
 	
@@ -44,19 +57,33 @@ func _physics_process(delta: float) -> void:
 	else:
 		$AnimatedSprite2D.stop()
 	
-	Klettern()
-	
-	
-	
-	move_and_slide()
-
-
-
-
 
 func Klettern():
+	if stamina < 0:
+		pass
+	
 	if not is_on_floor():
-		if RayL.is_colliding() and Input.is_action_pressed("Jump"):
+		if (RayL.is_colliding()  or RayR.is_colliding()) and Input.is_action_pressed("Jump"):
 			velocity.y = -350
-		elif RayR.is_colliding() and Input.is_action_pressed("Jump"):
-			velocity.y = -350
+		#elif RayL.is_colliding() or RayR.is_colliding() and !Input.is_action_pressed("Jump"):
+		#	velocity.y = 0
+		
+
+
+
+#var EnemieBody:Enemie = null
+
+#func Attack():
+#	pass
+
+
+#func CheckIfEnemieInAtack(body: Node2D) -> void:
+#	if body is Enemie:
+#		EnemieBody = body
+
+
+
+
+#func EnemieLeaveArea(body: Node2D) -> void:
+#	if body is Enemie:
+#		EnemieBody = null

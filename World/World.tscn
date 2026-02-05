@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca5ojkixell6m"]
+[gd_scene load_steps=8 format=3 uid="uid://ca5ojkixell6m"]
 
 [ext_resource type="Script" uid="uid://ctxtpwd6q8l3d" path="res://World/world.gd" id="1_8a836"]
 [ext_resource type="Script" uid="uid://bea5l4qpapix2" path="res://World/clouds_bg.gd" id="2_mlekv"]
@@ -16,6 +16,9 @@ noise_type = 3
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3f78f"]
 noise = SubResource("FastNoiseLite_j8job")
 color_ramp = SubResource("Gradient_8a836")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6flb"]
+size = Vector2(38, 376)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_8a836")
@@ -44,3 +47,18 @@ motion_scale = Vector2(0.1, 0.1)
 
 [node name="CloudsLayerNear" type="ParallaxLayer" parent="CloudsBG"]
 motion_scale = Vector2(0.2, 0.2)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 351.0
+offset_top = -266.0
+offset_right = 391.0
+offset_bottom = 121.0
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-764, 19)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(1135, -85)
+shape = SubResource("RectangleShape2D_y6flb")
