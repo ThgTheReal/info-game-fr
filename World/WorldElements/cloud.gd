@@ -11,7 +11,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var player:CatS = PLAYER.instantiate()
+	var player:Player = PLAYER.instantiate()
 	if player:
 		if global_position.x > player.global_position.y + 2500:
 			global_position = Vector2(player.global_position.x - 2500,randfn(50,200))

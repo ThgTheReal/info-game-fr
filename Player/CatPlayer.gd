@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-class_name CatS
+class_name Player
 
+var health = 100
 
 
 const SPEED = 300.0

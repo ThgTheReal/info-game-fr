@@ -4,9 +4,9 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-	var Player:CatS = preload("res://Player/CatPlayer.tscn").instantiate()
+	var PlayerInstance:Player = preload("res://Player/CatPlayer.tscn").instantiate()
 	
-	add_child(Player)
+	add_child(PlayerInstance)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

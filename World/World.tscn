@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca5ojkixell6m"]
+[gd_scene load_steps=7 format=3 uid="uid://ca5ojkixell6m"]
 
 [ext_resource type="Script" uid="uid://ctxtpwd6q8l3d" path="res://World/world.gd" id="1_8a836"]
 [ext_resource type="Script" uid="uid://bea5l4qpapix2" path="res://World/clouds_bg.gd" id="2_mlekv"]
@@ -16,8 +16,6 @@ noise_type = 3
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3f78f"]
 noise = SubResource("FastNoiseLite_j8job")
 color_ramp = SubResource("Gradient_8a836")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6flb"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_8a836")
@@ -41,23 +39,8 @@ script = ExtResource("2_mlekv")
 [node name="CloudsLayerFar" type="ParallaxLayer" parent="CloudsBG"]
 motion_scale = Vector2(0.05, 0.05)
 
-[node name="Cloudsprite" type="Sprite2D" parent="CloudsBG/CloudsLayerFar"]
-position = Vector2(1504, 38.999996)
-scale = Vector2(0.05, 0.05)
-texture = SubResource("CompressedTexture2D_y6flb")
-
 [node name="CloudsLayerMid" type="ParallaxLayer" parent="CloudsBG"]
 motion_scale = Vector2(0.1, 0.1)
 
-[node name="Cloudsprite" type="Sprite2D" parent="CloudsBG/CloudsLayerMid"]
-position = Vector2(326, 17.999992)
-scale = Vector2(0.05, 0.05)
-texture = SubResource("CompressedTexture2D_y6flb")
-
 [node name="CloudsLayerNear" type="ParallaxLayer" parent="CloudsBG"]
 motion_scale = Vector2(0.2, 0.2)
-
-[node name="Cloudsprite" type="Sprite2D" parent="CloudsBG/CloudsLayerNear"]
-position = Vector2(831, -6.0000076)
-scale = Vector2(0.05, 0.05)
-texture = SubResource("CompressedTexture2D_y6flb")
