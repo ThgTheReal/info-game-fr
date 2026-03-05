@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	
 	Klettern()
 	
-	
+	Attack()
 	
 	move_and_slide()
 
@@ -94,26 +94,24 @@ func Klettern():
 		IsKlettern = false
 
 
-#var EnemieBody:Enemie = null
+var EnemieBody:Enemie = null
 
-#func Attack():
-#	pass
+func Attack():
+	if Input.is_action_just_pressed("Attack"):
+		if EnemieBody:
+			EnemieBody.take_damage(5)
+	
 
 
 func get_damage(damage) -> void:
 	health = health - damage
 
 
-
 func CheckIfEnemieInAtack(body: Node2D) -> void:
-	pass
-#	if body is Enemie:
-#		EnemieBody = body
-
-
-
+	if body is Enemie:
+		EnemieBody = body
 
 func EnemieLeaveArea(body: Node2D) -> void:
 	pass
-#	if body is Enemie:
-#		EnemieBody = null
+	if body is Enemie:
+		EnemieBody = null

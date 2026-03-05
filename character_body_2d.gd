@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Enemie
+
 var speed = 30
 
 var player_chase = false
