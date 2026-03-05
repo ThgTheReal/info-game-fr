@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-
-
 var speed = 30
 
 var player_chase = false
@@ -45,11 +43,11 @@ func _physics_process(delta):
 		velocity += get_gravity() * delta
 		
 	if player_chase:
-		$AnimatedSprite2D.play("walk")
-		if(ChasedPlayer.position.x - position.x) < 0:
-			$AnimatedSprite2D.flip_h = true
-		else:
-			$AnimatedSprite2D.flip_h = false
+	#	$AnimatedSprite2D.play("walk")
+	#	if(ChasedPlayer.position.x - position.x) < 0:
+	#		$AnimatedSprite2D.flip_h = true
+	#	else:
+	#		$AnimatedSprite2D.flip_h = false
 		
 		position.x+=(ChasedPlayer.position.x-position.x)/speed
 		
@@ -105,7 +103,7 @@ func can_atack():
 
 func take_damage(amount: int):
 	health -= amount
-	$ProgressBar.value = health
+	#$ProgressBar.value = health
 
 		
 func _process(delta: float) -> void:
@@ -134,10 +132,10 @@ func apply_knockback(from_position: Vector2) -> void:
 
 
 func noPlayerNear(delta):
-	$AnimatedSprite2D.play("walk")
+#	$AnimatedSprite2D.play("walk")
 	
 	# Sprite drehen je nach Richtung
-	$AnimatedSprite2D.flip_h = patrol_direction < 0
+#	$AnimatedSprite2D.flip_h = patrol_direction < 0
 	
 	# Bewegung
 	velocity.x = patrol_direction * speed

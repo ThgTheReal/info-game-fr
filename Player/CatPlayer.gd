@@ -100,6 +100,11 @@ func Klettern():
 #	pass
 
 
+func get_damage(damage) -> void:
+	health = health - damage
+
+
+
 func CheckIfEnemieInAtack(body: Node2D) -> void:
 	pass
 #	if body is Enemie:
