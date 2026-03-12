@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://d0gs8mxuglpv1"]
 
-[ext_resource type="Script" path="res://World/world.gd" id="1_8a836"]
+[ext_resource type="Script" uid="uid://dywe3xgb88kgs" path="res://World/world.gd" id="1_8a836"]
 [ext_resource type="Script" path="res://World/clouds_bg.gd" id="2_mlekv"]
 [ext_resource type="PackedScene" uid="uid://dru26fwg2kmvb" path="res://Enemies/Enemie_Jannik.tscn" id="4_il6x7"]
 [ext_resource type="Texture2D" uid="uid://dnrfnmhae8cun" path="res://Worldmaptexture.png" id="4_o14yy"]
@@ -80,3 +80,7 @@ tile_set = SubResource("TileSet_o14yy")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_il6x7")]
 position = Vector2(478, -65)
+health = 150
+patrol_distance = 120.0
+knockback_strength = 2000.0
+knockback_duration = 0.15
