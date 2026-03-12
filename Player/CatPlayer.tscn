@@ -258,6 +258,7 @@ tint_progress = Color(1, 0.3372549, 1, 1)
 
 [node name="ClimbL" type="RayCast2D" parent="."]
 modulate = Color(0, 0, 0, 1)
+<<<<<<< Updated upstream
 position = Vector2(-1, 16)
 target_position = Vector2(20, 0)
 collision_mask = 2
@@ -267,6 +268,17 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(-1, 16)
 target_position = Vector2(-16, 0)
 collision_mask = 2
+=======
+position = Vector2(0, 31)
+target_position = Vector2(52, 0)
+collision_mask = 32
+
+[node name="ClimbR" type="RayCast2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(0, 31)
+target_position = Vector2(-56, 0)
+collision_mask = 32
+>>>>>>> Stashed changes
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

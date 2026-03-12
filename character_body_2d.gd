@@ -38,11 +38,13 @@ var is_knocked_back = false
 
 func _physics_process(delta):
 	
-	if attack_timer > 0:
-		attack_timer -= delta
-	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
+	#if attack_timer > 0:
+	#	attack_timer -= delta
+	
+	
 		
 	if player_chase:
 	#	$AnimatedSprite2D.play("walk")
@@ -63,7 +65,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	
+	healthCheck()
 	can_atack()
 	
 
@@ -108,7 +110,7 @@ func take_damage(amount: int):
 	#$ProgressBar.value = health
 
 		
-func _process(delta: float) -> void:
+func healthCheck() -> void:
 	if health <= 0:
 		atack = false
 		death = true
