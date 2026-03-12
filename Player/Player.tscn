@@ -38,7 +38,7 @@ zoom = Vector2(2, 2)
 texture_filter = 1
 sprite_frames = ExtResource("2_kne1u")
 animation = &"sitWeiß"
-frame_progress = 0.29848474
+frame_progress = 0.2922164
 
 [connection signal="body_entered" from="Area2D" to="." method="CheckIfEnemieInAtack"]
 [connection signal="body_exited" from="Area2D" to="." method="EnemieLeaveArea"]
