@@ -9,7 +9,7 @@ size = Vector2(40, 40)
 size = Vector2(54, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_roquc"]
-size = Vector2(406, 42)
+size = Vector2(406, 93)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 4
@@ -40,7 +40,7 @@ shape = SubResource("RectangleShape2D_6yfey")
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DEKTIONArea2D2"]
-position = Vector2(20, 20)
+position = Vector2(20, 18.5)
 shape = SubResource("RectangleShape2D_roquc")
 
 [connection signal="body_entered" from="aTTAKArea2D" to="." method="_on_atack_body_entered"]

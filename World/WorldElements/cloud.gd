@@ -5,6 +5,7 @@ class_name CloudType1
 # adjust path to match your scene tree
 
 func _process(_delta: float) -> void:
+	pass
 	var player:Player = PLAYER.instantiate()
 	
 	if not player:
