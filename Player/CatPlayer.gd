@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	
-	#TextureAnimation(direction)
+	TextureAnimation(direction)
 	
 	Klettern()
 	
@@ -48,19 +48,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+@onready var animation = $AnimatedSprite2D
+func TextureAnimation(direction):
+	
+	if direction == 0:
+		animation.play("sitWeiß")
+	
+	if direction == -1:
+		animation.play("walkLeftWeiß")
+	elif  direction == 1:
+		animation.play("walkRightWeiß")
 
-#func TextureAnimation(direction):
-#			
-#	if direction != 0:
-#		$AnimatedSprite2D.play()
-#	
-#	if direction == 1:
-#		$AnimatedSprite2D.flip_h = false
-#	elif  direction == -1:
-#		$AnimatedSprite2D.flip_h = true
-#	else:
-#		$AnimatedSprite2D.stop()
-#	
+	
 
 
 

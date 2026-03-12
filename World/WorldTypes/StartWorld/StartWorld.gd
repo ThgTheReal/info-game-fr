@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 
 func _ready() -> void:
-	var PlayerInstance:Player = preload("res://Player/CatPlayer.tscn").instantiate()
+	var PlayerInstance:Player = preload("res://Player/Player.tscn").instantiate()
 	
 	add_child(PlayerInstance)
 

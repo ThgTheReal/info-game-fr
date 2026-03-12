@@ -1,7 +1,7 @@
 extends Node2D
 class_name CloudType1
 
-@onready var PLAYER = preload("res://Player/CatPlayer.tscn") 
+@onready var PLAYER = preload("res://Player/Player.tscn") 
 # adjust path to match your scene tree
 
 func _process(_delta: float) -> void:
