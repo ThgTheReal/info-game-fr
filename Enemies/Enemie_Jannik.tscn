@@ -76,7 +76,7 @@ shape = SubResource("RectangleShape2D_roquc")
 texture_filter = 1
 position = Vector2(20, 20)
 sprite_frames = SubResource("SpriteFrames_l8s3k")
-frame_progress = 0.32057193
+frame_progress = 0.17266104
 
 [connection signal="body_entered" from="aTTAKArea2D" to="." method="_on_atack_body_entered"]
 [connection signal="body_exited" from="aTTAKArea2D" to="." method="_on_atack_body_exited"]
