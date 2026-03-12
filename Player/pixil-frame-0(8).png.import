@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvm1eb2cx0j87"
-path="res://.godot/imported/Sechs orange Katzen im Pixelstil.png-601c264039f8b777fa20a61b1949cd00.ctex"
+uid="uid://b47fqds5ile50"
+path="res://.godot/imported/pixil-frame-0(8).png-834e890e84a13316aa140667be6582b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Sechs orange Katzen im Pixelstil.png"
-dest_files=["res://.godot/imported/Sechs orange Katzen im Pixelstil.png-601c264039f8b777fa20a61b1949cd00.ctex"]
+source_file="res://Player/pixil-frame-0(8).png"
+dest_files=["res://.godot/imported/pixil-frame-0(8).png-834e890e84a13316aa140667be6582b2.ctex"]
 
 [params]
 
