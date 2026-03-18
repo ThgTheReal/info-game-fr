@@ -43,6 +43,8 @@ func _physics_process(delta: float) -> void:
 	
 	Klettern()
 	
+	useStamina(delta)
+	
 	Attack()
 	
 	move_and_slide()
@@ -61,49 +63,67 @@ func TextureAnimation(direction):
 
 	
 
-
-
-func useStamina():
-	if IsKlettern == false:
-		stamina =+ 1
-		await get_tree().create_timer(0.5).timeout
-	
-	if Klettern:
-		stamina =- 10
-		await get_tree().create_timer(1.0).timeout
-
-
 var  IsKlettern = false
 
-func Klettern():
-	if stamina < 0:
-		pass
+
+
+
+func useStamina(delta):
+	if IsKlettern and stamina > 0:
+		stamina -= 10 * delta
 	
-	if not is_on_floor():
-		if (RayL.is_colliding()  or RayR.is_colliding()) and Input.is_action_pressed("Jump"):
-			velocity.y = -150
-			IsKlettern = true
-		elif RayL.is_colliding() or RayR.is_colliding() and !Input.is_action_pressed("Jump") and !Input.is_action_pressed("Sneak"):
-			velocity.y = 0
-			IsKlettern = true
-		elif RayL.is_colliding() or RayR.is_colliding() and Input.is_action_pressed("Sneak") and !Input.is_action_pressed("Jump"):
-			velocity.y = 200
-			IsKlettern = true
+	elif !IsKlettern and stamina < 100:
+		stamina += 2 * delta
+	
+	stamina = clamp(stamina, 0, 100)
+	$CanvasLayer/Stamina.value = stamina
+	
+
+
+
+
+
+func Klettern():
+	
 	if is_on_floor():
 		IsKlettern = false
-
-
-var EnemieBody:Enemie = null
-
-func Attack():
-	if Input.is_action_just_pressed("Attack"):
-		if EnemieBody:
-			EnemieBody.take_damage(5)
 	
+	if stamina > 0:
+		
+		if not is_on_floor():
+			if (RayL.is_colliding()  or RayR.is_colliding()) and Input.is_action_pressed("Jump"):
+				velocity.y = -150
+				IsKlettern = true
+			elif (RayL.is_colliding() or RayR.is_colliding()) and !Input.is_action_pressed("Jump") and !Input.is_action_pressed("Sneak"):
+				velocity.y = 0
+				IsKlettern = true
+			elif (RayL.is_colliding() or RayR.is_colliding()) and Input.is_action_pressed("Sneak") and !Input.is_action_pressed("Jump"):
+				velocity.y = 200
+				IsKlettern = true
+
+
+var EnemieBody = null
+
+
 
 
 func get_damage(damage) -> void:
 	health = health - damage
+	$Health.value = health
+	die()
+
+func die():
+	if health <= 0:
+		position = Vector2(0,0)
+		health = 100
+		$Health.value = health
+
+
+func Attack():
+	if Input.is_action_just_pressed("Attack"):
+		if EnemieBody != null:
+			EnemieBody.take_damage(5)
+
 
 
 func CheckIfEnemieInAtack(body: Node2D) -> void:
@@ -111,6 +131,5 @@ func CheckIfEnemieInAtack(body: Node2D) -> void:
 		EnemieBody = body
 
 func EnemieLeaveArea(body: Node2D) -> void:
-	pass
 	if body is Enemie:
 		EnemieBody = null

@@ -7,19 +7,19 @@ var speed = 30
 var player_chase = false
 
 var player : Player = null
-var ChasedPlayer: Player = null
+var ChasedPlayer: Player = null 
 
-var attack_timer = 0.0
-var cooldown = 0.1
+var attack_timer = 1
+var cooldown = 1
 var atack = false
 var death = false
 
-@export var health := 150
+@export var health := 100
 
 
 var patrol_start_position := Vector2.ZERO
 var patrol_direction := 1  # 1 = rechts, -1 = links
-@export var patrol_distance := 120.0  # wie weit hin und her
+@export var patrol_distance := 10.0  # wie weit hin und her
 
 var random_offset = 0.0
 var time_passed = 0.0
@@ -31,27 +31,22 @@ var is_knocked_back = false
 
 
 
-
-
-
-
-
 func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	#if attack_timer > 0:
-	#	attack_timer -= delta
-	
+	if attack_timer > 0 and player_chase:
+		attack_timer -= delta
+		print(attack_timer)
 	
 		
 	if player_chase:
-	#	$AnimatedSprite2D.play("walk")
-	#	if(ChasedPlayer.position.x - position.x) < 0:
-	#		$AnimatedSprite2D.flip_h = true
-	#	else:
-	#		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play("walk")
+		if(ChasedPlayer.position.x - position.x) < 0:
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
 		
 		position.x+=(ChasedPlayer.position.x-position.x)/speed
 		
@@ -68,7 +63,6 @@ func _physics_process(delta):
 	healthCheck()
 	can_atack()
 	
-
 
 func _on_area_2d_body_entered(body):
 	if body is Player:
@@ -100,14 +94,15 @@ func _on_atack_body_exited(body) -> void:
 
 func can_atack():
 	if player and atack == true and attack_timer <= 0 and death == false:
-		player.get_damage(5)
 		attack_timer = cooldown
+		player.get_damage(5)
+		
 		
 
 
 func take_damage(amount: int):
 	health -= amount
-	#$ProgressBar.value = health
+	$ProgressBar.value = health
 
 		
 func healthCheck() -> void:
@@ -136,10 +131,10 @@ func apply_knockback(from_position: Vector2) -> void:
 
 
 func noPlayerNear(delta):
-#	$AnimatedSprite2D.play("walk")
+	$AnimatedSprite2D.play("walk")
 	
 	# Sprite drehen je nach Richtung
-#	$AnimatedSprite2D.flip_h = patrol_direction < 0
+	$AnimatedSprite2D.flip_h = patrol_direction < 0
 	
 	# Bewegung
 	velocity.x = patrol_direction * speed
