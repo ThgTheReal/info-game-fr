@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=4 uid="uid://ca5ojkixell6m"]
+[gd_scene load_steps=7 format=4 uid="uid://ca5ojkixell6m"]
 
 [ext_resource type="Script" uid="uid://ctxtpwd6q8l3d" path="res://World/WorldTypes/StartWorld/StartWorld.gd" id="1_h0fr5"]
 [ext_resource type="PackedScene" uid="uid://dru26fwg2kmvb" path="res://Enemies/Enemie_Jannik.tscn" id="4_aih06"]
+[ext_resource type="PackedScene" uid="uid://tkvgmcnuh5f" path="res://campfire.tscn" id="4_i3wy8"]
 [ext_resource type="Texture2D" uid="uid://263q5e3pfunk" path="res://Worldmap.png" id="4_saeim"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i3wy8"]
@@ -464,3 +465,6 @@ tile_set = SubResource("TileSet_h1jyb")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_aih06")]
 position = Vector2(669, 115)
+
+[node name="Node2D" parent="." instance=ExtResource("4_i3wy8")]
+position = Vector2(1245, -9)
