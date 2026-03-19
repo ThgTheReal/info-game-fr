@@ -45,7 +45,7 @@ position_smoothing_enabled = true
 texture_filter = 1
 sprite_frames = ExtResource("2_kne1u")
 animation = &"attackSchwarz"
-frame = 4
+frame = 3
 frame_progress = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -80,10 +80,5 @@ offset_bottom = -17.0
 value = 100.0
 show_percentage = false
 
-[node name="AttackCooldown" type="Timer" parent="."]
-wait_time = 0.15
-one_shot = true
-
 [connection signal="body_entered" from="Area2D" to="." method="CheckIfEnemieInAtack"]
 [connection signal="body_exited" from="Area2D" to="." method="EnemieLeaveArea"]
-[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
