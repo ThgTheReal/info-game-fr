@@ -460,21 +460,21 @@ motion_scale = Vector2(0.2, 0.2)
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_aih06")]
 position = Vector2(669, 115)
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="Spawners" type="Node2D" parent="."]
 script = ExtResource("5_i3wy8")
 
-[node name="Timer" type="Timer" parent="Node2D2"]
+[node name="Timer" type="Timer" parent="Spawners"]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="B" type="Node2D" parent="Node2D2"]
+[node name="B" type="Node2D" parent="Spawners"]
 position = Vector2(389, -230)
 
-[node name="B2" type="Node2D" parent="Node2D2"]
+[node name="B2" type="Node2D" parent="Spawners"]
 position = Vector2(860, -221)
 
-[node name="Node2D" parent="." instance=ExtResource("6_h1jyb")]
+[node name="Campfirer" parent="." instance=ExtResource("6_h1jyb")]
 position = Vector2(1227, -10)
 
-[connection signal="timeout" from="Node2D2/Timer" to="Node2D2" method="_on_timer_timeout"]
+[connection signal="timeout" from="Spawners/Timer" to="Spawners" method="_on_timer_timeout"]

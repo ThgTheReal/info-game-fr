@@ -15,7 +15,7 @@ const JUMP_VELOCITY = -400.0
 
 
 func updateTextures():
-	$Health.value = health
+	$CanvasLayer/Control/Health.value = health
 	$CanvasLayer/Stamina.value = stamina
 
 func _ready() -> void:
@@ -64,14 +64,14 @@ func TextureAnimation(direction):
 		animation.play("attackSchwarz")
 		return
 		
-	if direction == 0:
-		animation.play("sitSchwarz")
-	elif direction == -1:
+	if direction == -1:
 		$AnimatedSprite2D.flip_h = false
-	elif  direction == 1:
+	if  direction == 1:
 		$AnimatedSprite2D.flip_h = true
 	animation.play("walkSchwarz")
 	
+	if direction == 0:
+		animation.play("sitSchwarz")
 
 
 
@@ -118,14 +118,14 @@ func Klettern():
 
 func get_damage(damage) -> void:
 	health = health - damage
-	$Health.value = health
+	$CanvasLayer/Control/Health.value = health
 	die()
 
 func die():
 	if health <= 0:
 		position = Vector2(0,0)
 		health = 100
-		$Health.value = health
+		$CanvasLayer/Control/Health.value = health
 
 var EnemieBody = []
 
