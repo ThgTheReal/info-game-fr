@@ -104,7 +104,7 @@ func Klettern():
 				IsKlettern = true
 
 
-var EnemieBody = null
+
 
 
 
@@ -120,18 +120,19 @@ func die():
 		health = 100
 		$Health.value = health
 
+var EnemieBody = []
 
 func Attack():
 	if Input.is_action_just_pressed("Attack"):
-		if EnemieBody != null:
-			EnemieBody.take_damage(5)
+		for enemie in EnemieBody:
+			enemie.take_damage(5)
 
 
 
 func CheckIfEnemieInAtack(body: Node2D) -> void:
 	if body is Enemie:
-		EnemieBody = body
+		EnemieBody.append(body)
 
 func EnemieLeaveArea(body: Node2D) -> void:
 	if body is Enemie:
-		EnemieBody = null
+		EnemieBody.erase(body)
