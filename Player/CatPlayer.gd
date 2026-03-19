@@ -15,7 +15,9 @@ const JUMP_VELOCITY = -400.0
 
 
 
-
+func updateTextures():
+	$Health.value = health
+	$CanvasLayer/Stamina.value = stamina
 
 func _ready() -> void:
 	pass

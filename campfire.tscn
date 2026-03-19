@@ -135,7 +135,7 @@ shape = SubResource("RectangleShape2D_8m1no")
 script = ExtResource("4_edg01")
 
 [node name="An_Aus" type="CollisionShape2D" parent="Area2DAn_Aus"]
-position = Vector2(-0.5, -4)
+position = Vector2(2, -4)
 shape = SubResource("RectangleShape2D_akrkc")
 
 [node name="Timer" type="Timer" parent="."]
