@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cefofn5sv5m70"]
+[gd_scene load_steps=6 format=3 uid="uid://cefofn5sv5m70"]
 
 [ext_resource type="Script" uid="uid://i63c00jckaet" path="res://Player/CatPlayer.gd" id="1_kpjcp"]
 [ext_resource type="SpriteFrames" uid="uid://uiii5tyfu8id" path="res://Player/CatPlayerAnimation.tres" id="2_kne1u"]
@@ -8,10 +8,7 @@
 size = Vector2(34, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxr5p"]
-size = Vector2(50, 36)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_tok1r"]
-radius = 271.26556
+size = Vector2(74, 36)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 26
@@ -40,8 +37,9 @@ shape = SubResource("RectangleShape2D_cxr5p")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 limit_left = 0
-limit_top = -300
+limit_top = -250
 limit_bottom = 250
+position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -80,12 +78,6 @@ offset_right = 34.0
 offset_bottom = -17.0
 value = 100.0
 show_percentage = false
-
-[node name="GrapArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrapArea"]
-position = Vector2(0, 1)
-shape = SubResource("CircleShape2D_tok1r")
 
 [connection signal="body_entered" from="Area2D" to="." method="CheckIfEnemieInAtack"]
 [connection signal="body_exited" from="Area2D" to="." method="EnemieLeaveArea"]

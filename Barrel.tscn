@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://yfb5fd5dvkux"]
+
+[ext_resource type="Script" uid="uid://cj8u7umegjxy2" path="res://barrel.gd" id="1_vtl75"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vtl75"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_vtl75")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -7.0
+offset_top = -11.0
+offset_right = 7.0
+offset_bottom = 12.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_vtl75")

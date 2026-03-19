@@ -13,10 +13,6 @@ const JUMP_VELOCITY = -400.0
 
 
 
-
-
-
-
 func _ready() -> void:
 	pass
 func _physics_process(delta: float) -> void:
@@ -102,7 +98,7 @@ func Klettern():
 				IsKlettern = true
 
 
-var EnemieBody = null
+
 
 
 
@@ -121,15 +117,15 @@ func die():
 
 func Attack():
 	if Input.is_action_just_pressed("Attack"):
-		if EnemieBody != null:
-			EnemieBody.take_damage(5)
+		for enemies in EnemieBody:
+			enemies.take_damage(5)
 
-
+var EnemieBody = []
 
 func CheckIfEnemieInAtack(body: Node2D) -> void:
 	if body is Enemie:
-		EnemieBody = body
+		EnemieBody.append(body)
 
 func EnemieLeaveArea(body: Node2D) -> void:
 	if body is Enemie:
-		EnemieBody = null
+		EnemieBody.erase(body)
