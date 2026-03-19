@@ -14,7 +14,6 @@ const JUMP_VELOCITY = -400.0
 
 
 
-
 func updateTextures():
 	$Health.value = health
 	$CanvasLayer/Stamina.value = stamina
@@ -26,7 +25,8 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -41,34 +41,41 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 	
+	
+
+	
+	
 	TextureAnimation(direction)
+	
+	Attack()
 	
 	Klettern()
 	
 	useStamina(delta)
 	
-	Attack()
+	
 	
 	move_and_slide()
 
 
 @onready var animation = $AnimatedSprite2D
 func TextureAnimation(direction):
-	
+	if attacking == true:
+		animation.play("attackSchwarz")
+		return
+		
 	if direction == 0:
-		animation.play("sitWeiß")
-	
-	if direction == -1:
-		animation.play("walkLeftWeiß")
+		animation.play("sitSchwarz")
+	elif direction == -1:
+		$AnimatedSprite2D.flip_h = false
 	elif  direction == 1:
-		animation.play("walkRightWeiß")
-
+		$AnimatedSprite2D.flip_h = true
+	animation.play("walkSchwarz")
 	
+
+
 
 var  IsKlettern = false
-
-
-
 
 func useStamina(delta):
 	if IsKlettern and stamina > 0:
@@ -122,12 +129,17 @@ func die():
 
 var EnemieBody = []
 
+
+var attacking = false
+
+
 func Attack():
-	if Input.is_action_just_pressed("Attack"):
+	if Input.is_action_just_pressed("Attack") and attacking == false:
+		attacking = true
 		for enemie in EnemieBody:
 			enemie.take_damage(5)
-
-
+		$AttackCooldown.start()
+	
 
 func CheckIfEnemieInAtack(body: Node2D) -> void:
 	if body is Enemie:
@@ -136,3 +148,8 @@ func CheckIfEnemieInAtack(body: Node2D) -> void:
 func EnemieLeaveArea(body: Node2D) -> void:
 	if body is Enemie:
 		EnemieBody.erase(body)
+
+
+func _on_attack_cooldown_timeout() -> void:
+	attacking = false
+	

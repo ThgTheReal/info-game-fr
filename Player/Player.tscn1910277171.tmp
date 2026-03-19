@@ -44,9 +44,7 @@ position_smoothing_enabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = ExtResource("2_kne1u")
-animation = &"attackSchwarz"
-frame = 4
-frame_progress = 1.0
+animation = &"walkWeiß"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
