@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 	useStamina(delta)
 	
 	
-	
+	die()
 	move_and_slide()
 
 
@@ -114,15 +114,19 @@ func Klettern():
 
 
 
-
+@onready var damageShader = $AnimatedSprite2D.material
 
 func get_damage(damage) -> void:
+	damageShader.set_shader_parameter("flash_strength", 0.5)
+	await get_tree().create_timer(0.1).timeout
+	damageShader.set_shader_parameter("flash_strength", 0.0)
+	
 	health = health - damage
 	$CanvasLayer/Control/Health.value = health
 	die()
 
 func die():
-	if health <= 0:
+	if health <= 0 or position.y >= 320:
 		position = Vector2(0,0)
 		health = 100
 		$CanvasLayer/Control/Health.value = health

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 class_name Enemie
 
-var speed = 30
+var speed = 25
 
 var player_chase = false
 
@@ -29,6 +29,9 @@ var time_passed = 0.0
 @export var knockback_duration: float = 0.15
 var is_knocked_back = false
 
+@onready var sprite = $AnimatedSprite2D
+func _ready() -> void:
+	sprite.material = sprite.material.duplicate()
 
 
 func _physics_process(delta):
@@ -101,6 +104,9 @@ func can_atack():
 
 
 func take_damage(amount: int):
+	sprite.material.set_shader_parameter("flash_strength", 0.5)
+	await get_tree().create_timer(0.1).timeout
+	sprite.material.set_shader_parameter("flash_strength", 0.0)
 	health -= amount
 	$ProgressBar.value = health
 

@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cefofn5sv5m70"]
+[gd_scene load_steps=10 format=3 uid="uid://cefofn5sv5m70"]
 
+[ext_resource type="Shader" uid="uid://k0vmq0wpg8x7" path="res://Player/Player.gdshader" id="1_6ysni"]
 [ext_resource type="Script" uid="uid://i63c00jckaet" path="res://Player/CatPlayer.gd" id="1_kpjcp"]
 [ext_resource type="SpriteFrames" uid="uid://uiii5tyfu8id" path="res://Player/CatPlayerAnimation.tres" id="2_kne1u"]
 [ext_resource type="Texture2D" uid="uid://b55yoajalescy" path="res://Player/pixil-frame-0 (10).png" id="4_6ysni"]
@@ -11,6 +12,10 @@ size = Vector2(34, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cxr5p"]
 size = Vector2(74, 36)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ysni"]
+shader = ExtResource("1_6ysni")
+shader_parameter/flash_strength = 0.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 18
@@ -45,6 +50,7 @@ position_smoothing_enabled = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_6ysni")
 sprite_frames = ExtResource("2_kne1u")
 animation = &"attackSchwarz"
 frame = 4
@@ -91,10 +97,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -149.0
-offset_right = 118.0
-offset_bottom = -109.0
+offset_left = -8.0
+offset_top = -150.0
+offset_right = 119.5
+offset_bottom = -110.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
