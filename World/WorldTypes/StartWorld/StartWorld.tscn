@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://ca5ojkixell6m"]
 
 [ext_resource type="Script" uid="uid://ctxtpwd6q8l3d" path="res://World/WorldTypes/StartWorld/StartWorld.gd" id="1_h0fr5"]
-[ext_resource type="PackedScene" uid="uid://dru26fwg2kmvb" path="res://Enemies/Enemie_Jannik.tscn" id="4_aih06"]
+[ext_resource type="PackedScene" uid="uid://dru26fwg2kmvb" path="res://Enemies/Rats/Enemie_Jannik.tscn" id="4_aih06"]
 [ext_resource type="Texture2D" uid="uid://dcx2sfs6164df" path="res://World/pixil-frame-0 (8).png" id="5_h1jyb"]
 [ext_resource type="Script" uid="uid://c2ykyfvdtmwsn" path="res://World/WorldTypes/StartWorld/barrel_points.gd" id="5_i3wy8"]
 [ext_resource type="PackedScene" uid="uid://tkvgmcnuh5f" path="res://campfire.tscn" id="6_h1jyb"]

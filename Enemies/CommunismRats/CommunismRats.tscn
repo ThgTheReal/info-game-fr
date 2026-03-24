@@ -1,0 +1,109 @@
+[gd_scene load_steps=13 format=3 uid="uid://bcjv0lh4s0gj4"]
+
+[ext_resource type="Script" uid="uid://c3a8tte66d7n7" path="res://Enemies/CommunismRats/CommunismRats.gd" id="1_qvc5w"]
+[ext_resource type="Shader" uid="uid://b0uyeikngn62x" path="res://Enemies/EnemieDamage.gdshader" id="2_2ehcv"]
+[ext_resource type="Texture2D" uid="uid://ygeielrqtfc2" path="res://Enemies/Rats/Rat-White-Walk.png" id="3_qvc5w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0dh7"]
+size = Vector2(32, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yfey"]
+size = Vector2(39.5, 26.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_roquc"]
+size = Vector2(655, 34)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_58l1c"]
+shader = ExtResource("2_2ehcv")
+shader_parameter/flash_strength = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66kuu"]
+atlas = ExtResource("3_qvc5w")
+region = Rect2(0, 19, 32, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2khwd"]
+atlas = ExtResource("3_qvc5w")
+region = Rect2(32, 19, 32, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6vwv"]
+atlas = ExtResource("3_qvc5w")
+region = Rect2(64, 19, 32, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfjdd"]
+atlas = ExtResource("3_qvc5w")
+region = Rect2(96, 19, 32, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l8s3k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66kuu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2khwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6vwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfjdd")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_qvc5w")
+knockback_strength = 350.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+position = Vector2(20, 21)
+shape = SubResource("RectangleShape2D_v0dh7")
+
+[node name="aTTAKArea2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="aTTAKArea2D"]
+position = Vector2(20, 21)
+shape = SubResource("RectangleShape2D_6yfey")
+
+[node name="DEKTIONArea2D2" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DEKTIONArea2D2"]
+position = Vector2(20, 25)
+shape = SubResource("RectangleShape2D_roquc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("ShaderMaterial_58l1c")
+position = Vector2(20, 20)
+sprite_frames = SubResource("SpriteFrames_l8s3k")
+animation = &"walk"
+frame = 1
+frame_progress = 0.104725234
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -7.0
+offset_right = 58.0
+show_percentage = false
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+position = Vector2(20, 21)
+target_position = Vector2(-26, 0)
+collision_mask = 2
+
+[node name="RayRight" type="RayCast2D" parent="."]
+position = Vector2(20, 21)
+target_position = Vector2(25, 0)
+collision_mask = 2
+
+[connection signal="body_entered" from="aTTAKArea2D" to="." method="_on_atack_body_entered"]
+[connection signal="body_exited" from="aTTAKArea2D" to="." method="_on_atack_body_exited"]
+[connection signal="body_entered" from="DEKTIONArea2D2" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="DEKTIONArea2D2" to="." method="_on_area_2d_body_exited"]

@@ -1,8 +1,9 @@
 extends CharacterBody2D
 class_name rat_barrel
+var rat = preload("res://Enemies/Rats/Enemie_Jannik.tscn")
+var CommunismRat = preload("res://Enemies/CommunismRats/CommunismRats.tscn")
 
-var rat = preload("res://Enemies/Enemie_Jannik.tscn")
-
+var spawningRat 
 
 
 func _ready() -> void:
@@ -10,6 +11,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
+
+	
+	
 	rotate(0.1)
 	# Add the gravity.
 	if not is_on_floor():
@@ -19,8 +24,14 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 		if player:
 			player.get_damage(10)
-			
-		var ratInstance:Enemie = rat.instantiate()
+		var ratInstance
+		if randi_range(0,1) == 0:
+			ratInstance = rat.instantiate()
+		else:
+			ratInstance = CommunismRat.instantiate()
+
+		
+		#ratInstance.instantiate()
 		ratInstance.global_position = global_position
 		get_parent().add_child(ratInstance)
 		queue_free()

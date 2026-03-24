@@ -15,6 +15,10 @@ run/main_scene="uid://cg6wmghotxc5b"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=60
 
+[autoload]
+
+GlobalVariables="*res://global_variables.gd"
+
 [display]
 
 window/size/mode=2

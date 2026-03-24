@@ -1,0 +1,14 @@
+extends Node
+
+
+var RatKills
+
+var comunismRatHealth
+var comunismRatMaxHealth
+
+func _ready() -> void:
+	RatKills = 0 
+	comunismRatHealth = 0
+	comunismRatMaxHealth = 0
+func _process(delta: float) -> void:
+	pass

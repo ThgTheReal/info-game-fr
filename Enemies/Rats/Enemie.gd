@@ -19,7 +19,7 @@ var death = false
 
 var patrol_start_position := Vector2.ZERO
 var patrol_direction := 1  # 1 = rechts, -1 = links
-@export var patrol_distance := 10.0  # wie weit hin und her
+@export var patrol_distance := 70.0  # wie weit hin und her
 
 var random_offset = 0.0
 var time_passed = 0.0
@@ -31,6 +31,8 @@ var is_knocked_back = false
 
 @onready var sprite = $AnimatedSprite2D
 func _ready() -> void:
+	patrol_start_position = global_position
+	
 	sprite.material = sprite.material.duplicate()
 
 
@@ -147,7 +149,7 @@ func noPlayerNear(delta):
 	position.x += velocity.x * delta
 	
 	# Prüfen, ob Grenze erreicht wurde
-	if position.x > patrol_start_position.x + patrol_distance:
+	if (position.x > patrol_start_position.x + patrol_distance) or $RayRight.is_colliding():
 		patrol_direction = -1
-	elif position.x < patrol_start_position.x - patrol_distance:
+	elif (position.x < patrol_start_position.x - patrol_distance) or $RayLeft.is_colliding():
 		patrol_direction = 1

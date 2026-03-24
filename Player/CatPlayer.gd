@@ -142,15 +142,16 @@ func Attack():
 		attacking = true
 		for enemie in EnemieBody:
 			enemie.take_damage(5)
+			enemie.apply_knockback(position)
 		$AttackCooldown.start()
 	
 
 func CheckIfEnemieInAtack(body: Node2D) -> void:
-	if body is Enemie:
+	if body is Enemie or CommmunismRats:
 		EnemieBody.append(body)
 
 func EnemieLeaveArea(body: Node2D) -> void:
-	if body is Enemie:
+	if body is Enemie or CommmunismRats:
 		EnemieBody.erase(body)
 
 
