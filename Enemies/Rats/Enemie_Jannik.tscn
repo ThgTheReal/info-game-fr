@@ -57,7 +57,7 @@ animations = [{
 collision_layer = 4
 collision_mask = 10
 script = ExtResource("1_xbjkk")
-health = 20
+health = 15
 knockback_strength = 300.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

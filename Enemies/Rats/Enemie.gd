@@ -114,6 +114,7 @@ func healthCheck() -> void:
 	if health <= 0:
 		atack = false
 		death = true
+		GlobalVariables.RatKills = GlobalVariables.RatKills + 1
 		queue_free()
 
 func apply_knockback(from_position: Vector2) -> void:

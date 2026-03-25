@@ -143,9 +143,10 @@ func get_damage(damage) -> void:
 
 func die():
 	if health <= 0 or position.y >= 320:
-		position = Vector2(0,0)
-		health = 100
-		$CanvasLayer/Control/Health.value = health
+		get_tree().change_scene_to_file("res://EndScreen/EndScreen.tscn")
+		#position = Vector2(0,0)
+		#health = 100
+		#$CanvasLayer/Control/Health.value = health
 
 var EnemieBody = []
 

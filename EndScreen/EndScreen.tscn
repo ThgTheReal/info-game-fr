@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6yvovi25oqq"]
+
+[ext_resource type="Script" uid="uid://banj8dunwky17" path="res://EndScreen/end_screen.gd" id="1_e4fjt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e4fjt")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.014
+offset_right = 8.0
+offset_bottom = -0.072021484
+
+[node name="Stats" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 102.0
+offset_top = 148.0
+offset_right = -968.0
+offset_bottom = -477.0
+text = "Rats Killed: "
+
+[node name="Thanks" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 470.0
+offset_top = 46.0
+offset_right = -539.0
+offset_bottom = -579.0
+text = "Thanks for Playing"
+
+[node name="Credits" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 485.0
+offset_top = 281.0
+offset_right = -522.0
+offset_bottom = -240.0
+text = "          Credits
+
+Coding                Wir
+Texture               Wir
+Alles andere      Wir"
+
+[node name="Danke an" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 922.0
+offset_top = 294.0
+offset_right = -136.0
+offset_bottom = -331.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Shoutouts an:
+Gemini für die Musik
+Spotify für den Mentalen Suport"
