@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://ca5ojkixell6m"]
+[gd_scene load_steps=8 format=4 uid="uid://ca5ojkixell6m"]
 
 [ext_resource type="Script" uid="uid://ctxtpwd6q8l3d" path="res://World/WorldTypes/StartWorld/StartWorld.gd" id="1_h0fr5"]
-[ext_resource type="PackedScene" uid="uid://dru26fwg2kmvb" path="res://Enemies/Rats/Enemie_Jannik.tscn" id="4_aih06"]
 [ext_resource type="Texture2D" uid="uid://dcx2sfs6164df" path="res://World/pixil-frame-0 (8).png" id="5_h1jyb"]
 [ext_resource type="Script" uid="uid://c2ykyfvdtmwsn" path="res://World/WorldTypes/StartWorld/barrel_points.gd" id="5_i3wy8"]
 [ext_resource type="PackedScene" uid="uid://tkvgmcnuh5f" path="res://Objects/Campfire/campfire.tscn" id="6_h1jyb"]
@@ -460,9 +459,6 @@ motion_scale = Vector2(0.1, 0.1)
 [node name="CloudsLayerNear" type="ParallaxLayer" parent="CloudsBG"]
 motion_scale = Vector2(0.2, 0.2)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("4_aih06")]
-position = Vector2(669, 115)
-
 [node name="Spawners" type="Node2D" parent="."]
 script = ExtResource("5_i3wy8")
 
@@ -472,16 +468,16 @@ one_shot = true
 autostart = true
 
 [node name="BarrelShootSpot" type="Node2D" parent="Spawners"]
-position = Vector2(277, -430)
+position = Vector2(327, -52)
 
 [node name="BarrelShootSpot2" type="Node2D" parent="Spawners"]
-position = Vector2(1254, -643)
+position = Vector2(1226, -66)
 
 [node name="BarrelShootSpot3" type="Node2D" parent="Spawners"]
-position = Vector2(288, -1046)
+position = Vector2(934, -142)
 
 [node name="BarrelShootSpot4" type="Node2D" parent="Spawners"]
-position = Vector2(433, -1788)
+position = Vector2(622, -87)
 
 [node name="Campfires" type="Node2D" parent="."]
 
@@ -496,8 +492,9 @@ position = Vector2(435, -1543)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_kj34h")
-volume_db = -20.0
-pitch_scale = 0.4
-parameters/looping = false
+volume_db = -80.0
+pitch_scale = 0.8
+autoplay = true
+parameters/looping = true
 
 [connection signal="timeout" from="Spawners/Timer" to="Spawners" method="_on_timer_timeout"]

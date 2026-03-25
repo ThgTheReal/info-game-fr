@@ -114,7 +114,6 @@ func healthCheck() -> void:
 	if health <= 0:
 		atack = false
 		death = true
-	
 		queue_free()
 
 func apply_knockback(from_position: Vector2) -> void:
