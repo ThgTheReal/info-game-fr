@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dp524klw1aen6"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_0fbet"]
+
+[node name="Control" type="Control" unique_id=871555622]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0fbet")
+
+[node name="Panel" type="Panel" parent="." unique_id=1983056317]
+modulate = Color(0, 1, 1, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.998
+offset_right = 2.0
+offset_bottom = 0.29595947
+
+[node name="Menue" type="VBoxContainer" parent="." unique_id=411160623]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 442.0
+offset_top = 96.0
+offset_right = -413.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="Menue" unique_id=1828037657]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="Menue" unique_id=1483671515]
+layout_mode = 2
+text = "Settings
+"
+
+[node name="SettingsMenue" type="Control" parent="." unique_id=1678725975]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.99100006
+offset_left = -5.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 10.83197
+
+[node name="Label" type="Label" parent="SettingsMenue" unique_id=1939506535]
+layout_mode = 0
+offset_left = 344.0
+offset_top = 186.0
+offset_right = 836.0
+offset_bottom = 356.0
+
+[node name="Back" type="Button" parent="SettingsMenue" unique_id=1379640511]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 470.0
+offset_top = 419.0
+offset_right = -442.0
+offset_bottom = -184.0
+text = "Back
+"
+icon_alignment = 1
+
+[connection signal="pressed" from="Menue/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Menue/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="SettingsMenue/Back" to="." method="_on_back_pressed"]
