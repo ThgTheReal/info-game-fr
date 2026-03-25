@@ -3,9 +3,9 @@
 [ext_resource type="Shader" uid="uid://k0vmq0wpg8x7" path="res://Player/Player.gdshader" id="1_6ysni"]
 [ext_resource type="Script" uid="uid://i63c00jckaet" path="res://Player/CatPlayer.gd" id="1_kpjcp"]
 [ext_resource type="SpriteFrames" uid="uid://uiii5tyfu8id" path="res://Player/CatPlayerAnimation.tres" id="2_kne1u"]
-[ext_resource type="Texture2D" uid="uid://b55yoajalescy" path="res://Player/pixil-frame-0 (10).png" id="4_6ysni"]
-[ext_resource type="Texture2D" uid="uid://cnha7qge07nex" path="res://Player/pixil-frame-0 (4).png" id="4_8g4oa"]
-[ext_resource type="Texture2D" uid="uid://dp3q0qkkemh4x" path="res://Player/pixil-frame-0 (9).png" id="5_vlldt"]
+[ext_resource type="Texture2D" uid="uid://b55yoajalescy" path="res://Player/Textures/pixil-frame-0 (10).png" id="4_6ysni"]
+[ext_resource type="Texture2D" uid="uid://cnha7qge07nex" path="res://Player/Textures/pixil-frame-0 (4).png" id="4_8g4oa"]
+[ext_resource type="Texture2D" uid="uid://dp3q0qkkemh4x" path="res://Player/Textures/pixil-frame-0 (9).png" id="5_vlldt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
 size = Vector2(34, 36)
@@ -42,9 +42,10 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_cxr5p")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.25, 1.25)
 limit_left = 0
-limit_top = -250
+limit_top = -2000
+limit_right = 1535
 limit_bottom = 250
 position_smoothing_enabled = true
 
@@ -110,6 +111,14 @@ texture_under = ExtResource("4_6ysni")
 texture_progress = ExtResource("4_6ysni")
 tint_under = Color(0.24926683, 0, 0.031074742, 1)
 tint_progress = Color(1, 0, 0, 1)
+
+[node name="RoundCounter" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = -164.0
+offset_right = 519.0
+offset_bottom = -141.0
+text = "Round : "
 
 [node name="HealthOverlay" type="Sprite2D" parent="CanvasLayer/Control"]
 texture_filter = 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ihlwwf6y3o2h"
-path="res://.godot/imported/pixil-frame-0(9).png-4d92fe164b9c7fa158191131c0aec636.ctex"
+uid="uid://dry1fppewgvll"
+path="res://.godot/imported/AttackingCats.png-5a5c3d8f42e452afd2903692f6fac9a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pixil-frame-0(9).png"
-dest_files=["res://.godot/imported/pixil-frame-0(9).png-4d92fe164b9c7fa158191131c0aec636.ctex"]
+source_file="res://Player/Textures/AttackingCats.png"
+dest_files=["res://.godot/imported/AttackingCats.png-5a5c3d8f42e452afd2903692f6fac9a1.ctex"]
 
 [params]
 

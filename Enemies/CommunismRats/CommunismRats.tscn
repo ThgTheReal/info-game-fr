@@ -75,7 +75,7 @@ shape = SubResource("RectangleShape2D_6yfey")
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DEKTIONArea2D2"]
-position = Vector2(20, 25)
+position = Vector2(19, 25)
 shape = SubResource("RectangleShape2D_roquc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -101,6 +101,16 @@ collision_mask = 2
 [node name="RayRight" type="RayCast2D" parent="."]
 position = Vector2(20, 21)
 target_position = Vector2(25, 0)
+collision_mask = 2
+
+[node name="RayLeftBottom" type="RayCast2D" parent="."]
+position = Vector2(-5, 21)
+target_position = Vector2(0, 24)
+collision_mask = 2
+
+[node name="RayRightBottom" type="RayCast2D" parent="."]
+position = Vector2(45, 21)
+target_position = Vector2(0, 24)
 collision_mask = 2
 
 [connection signal="body_entered" from="aTTAKArea2D" to="." method="_on_atack_body_entered"]

@@ -31,6 +31,7 @@ window/size/mode=2
 
 folder_colors={
 "res://Enemies/": "red",
+"res://Objects/": "purple",
 "res://Player/": "orange",
 "res://Player/Cat1/": "gray",
 "res://Player/Cat2/": "gray",

@@ -11,10 +11,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
 
-	
-	
 	rotate(0.1)
 	# Add the gravity.
 	if not is_on_floor():
@@ -25,11 +22,10 @@ func _physics_process(delta: float) -> void:
 		if player:
 			player.get_damage(10)
 		var ratInstance
-		if randi_range(0,1) == 0:
-			ratInstance = rat.instantiate()
-		else:
+		if randi_range(0,5) == 0:
 			ratInstance = CommunismRat.instantiate()
-
+		else:
+			ratInstance = rat.instantiate()
 		
 		#ratInstance.instantiate()
 		ratInstance.global_position = global_position
