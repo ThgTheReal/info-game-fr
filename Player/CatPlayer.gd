@@ -21,6 +21,8 @@ func updateTextures():
 func _ready() -> void:
 	pass
 func _physics_process(delta: float) -> void:
+	$CanvasLayer/Control/RoundCounter.text = "Round: " + str(GlobalVariables.Round)
+	
 	
 	# Add the gravity.
 	if not is_on_floor():

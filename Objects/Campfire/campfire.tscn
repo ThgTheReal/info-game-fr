@@ -1,12 +1,15 @@
 [gd_scene load_steps=20 format=3 uid="uid://tkvgmcnuh5f"]
 
-[ext_resource type="Texture2D" uid="uid://ihlwwf6y3o2h" path="res://pixil-frame-0(9).png" id="1_dk7h0"]
-[ext_resource type="Script" uid="uid://bvr8nea8gs8of" path="res://area_2d.gd" id="2_t2ea5"]
-[ext_resource type="Script" uid="uid://ciptdlm2ge6ol" path="res://area_2d_damage.gd" id="3_y1gn1"]
-[ext_resource type="Script" uid="uid://br8x6owsf6f1p" path="res://area_2d_an_aus.gd" id="4_edg01"]
+[ext_resource type="Texture2D" uid="uid://ihlwwf6y3o2h" path="res://Objects/Campfire/pixil-frame-0(9).png" id="1_dk7h0"]
+[ext_resource type="Script" uid="uid://bvr8nea8gs8of" path="res://Objects/Campfire/area_2d.gd" id="2_t2ea5"]
+[ext_resource type="Script" uid="uid://br8x6owsf6f1p" path="res://Objects/Campfire/area_2d_an_aus.gd" id="4_edg01"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vqbg"]
 size = Vector2(47, 41)
+
+[sub_resource type="GDScript" id="GDScript_okxgk"]
+script/source = "extends Area2D
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m1no"]
 size = Vector2(22, 24)
@@ -121,7 +124,7 @@ position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_7vqbg")
 
 [node name="Area2DDamage" type="Area2D" parent="."]
-script = ExtResource("3_y1gn1")
+script = SubResource("GDScript_okxgk")
 
 [node name="Damage" type="CollisionShape2D" parent="Area2DDamage"]
 position = Vector2(0, -6)

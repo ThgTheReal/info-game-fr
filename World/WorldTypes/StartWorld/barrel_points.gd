@@ -9,14 +9,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
-@export var barrel = preload("res://Barrel.tscn")
+@export var barrel = preload("res://Objects/Barrel/Barrel.tscn")
 func _on_timer_timeout() -> void:
+	GlobalVariables.Round = GlobalVariables.Round + 1
 	for spawn_point in get_children():
-		if spawn_point.name.begins_with("B"):
+		if spawn_point.name.begins_with("BarrelShootSpot"):
 			var barrelInst:rat_barrel = barrel.instantiate()  
 			barrelInst.global_position = spawn_point.global_position
 			add_child(barrelInst)
 			
-
 	$Timer.start()
