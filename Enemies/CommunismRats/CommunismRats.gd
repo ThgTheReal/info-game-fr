@@ -29,7 +29,6 @@ var is_knocked_back = false
 
 @onready var sprite = $AnimatedSprite2D
 func _ready() -> void:
-	
 	GlobalVariables.comunismRatHealth = GlobalVariables.comunismRatHealth + health
 	GlobalVariables.comunismRatMaxHealth = GlobalVariables.comunismRatMaxHealth + health
 	#sprite.material = sprite.material.duplicate()
