@@ -1,0 +1,151 @@
+[gd_scene load_steps=20 format=3 uid="uid://d07ejkfipqv3"]
+
+[ext_resource type="Texture2D" path="res://pixil-frame-0(9).png" id="1_dk7h0"]
+[ext_resource type="Script" path="res://area_2d.gd" id="2_t2ea5"]
+[ext_resource type="Script" path="res://area_2d_damage.gd" id="3_y1gn1"]
+[ext_resource type="Script" path="res://area_2d_an_aus.gd" id="4_edg01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vqbg"]
+size = Vector2(47, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8m1no"]
+size = Vector2(22, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akrkc"]
+size = Vector2(171, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk7h0"]
+atlas = ExtResource("1_dk7h0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2ea5"]
+atlas = ExtResource("1_dk7h0")
+region = Rect2(33, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq1qs"]
+atlas = ExtResource("1_dk7h0")
+region = Rect2(66, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4nt8"]
+atlas = ExtResource("1_dk7h0")
+region = Rect2(0, 66, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpjfg"]
+atlas = ExtResource("1_dk7h0")
+region = Rect2(33, 66, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1gn1"]
+atlas = ExtResource("1_dk7h0")
+region = Rect2(0, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edg01"]
+atlas = ExtResource("1_dk7h0")
+region = Rect2(33, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ds4i"]
+atlas = ExtResource("1_dk7h0")
+region = Rect2(66, 33, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vqbg"]
+atlas = ExtResource("1_dk7h0")
+region = Rect2(0, 66, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8m1no"]
+atlas = ExtResource("1_dk7h0")
+region = Rect2(33, 66, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akrkc"]
+atlas = ExtResource("1_dk7h0")
+region = Rect2(66, 66, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ds4i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk7h0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2ea5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rq1qs")
+}],
+"loop": true,
+"name": &"An",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4nt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpjfg")
+}],
+"loop": true,
+"name": &"Aus",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1gn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edg01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ds4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vqbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8m1no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akrkc")
+}],
+"loop": false,
+"name": &"Aus_gehn",
+"speed": 4.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("4_edg01")
+
+[node name="Heal" type="Area2D" parent="."]
+position = Vector2(-1, -3.5)
+script = ExtResource("2_t2ea5")
+
+[node name="Heal" type="CollisionShape2D" parent="Heal"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_7vqbg")
+
+[node name="Area2DDamage" type="Area2D" parent="."]
+script = ExtResource("3_y1gn1")
+
+[node name="Damage" type="CollisionShape2D" parent="Area2DDamage"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_8m1no")
+
+[node name="Area2DAn_Aus" type="Area2D" parent="."]
+
+[node name="An_Aus" type="CollisionShape2D" parent="Area2DAn_Aus"]
+position = Vector2(2, -4)
+shape = SubResource("RectangleShape2D_akrkc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_4ds4i")
+animation = &"An"
+frame_progress = 0.58400494
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="body_entered" from="Heal" to="Heal" method="_on_body_entered"]
+[connection signal="body_exited" from="Heal" to="Heal" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2DAn_Aus" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area2DAn_Aus" to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="Heal" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Area2DAn_Aus" method="_on_timer_timeout"]
