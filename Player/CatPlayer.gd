@@ -21,6 +21,8 @@ func updateTextures():
 func _ready() -> void:
 	pass
 func _physics_process(delta: float) -> void:
+	changeCat()
+	
 	$CanvasLayer/Control/RoundCounter.text = "Round: " + str(GlobalVariables.Round)
 	
 	
@@ -60,20 +62,32 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+
+var catColor = "Orange"
 @onready var animation = $AnimatedSprite2D
+
+
+func changeCat():
+	if Input.is_key_pressed(KEY_1):
+		catColor = "Orange"
+	elif Input.is_key_pressed(KEY_2):
+		catColor = "Weiß"
+	elif Input.is_key_pressed(KEY_3):
+		catColor = "Schwarz"
+
 func TextureAnimation(direction):
 	if attacking == true:
-		animation.play("attackSchwarz")
+		animation.play("attack" + catColor)
 		return
 		
 	if direction == -1:
 		$AnimatedSprite2D.flip_h = false
 	if  direction == 1:
 		$AnimatedSprite2D.flip_h = true
-	animation.play("walkSchwarz")
+	animation.play("walk" + catColor)
 	
 	if direction == 0:
-		animation.play("sitSchwarz")
+		animation.play("sit" + catColor)
 
 
 

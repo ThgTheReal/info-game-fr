@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		ratInstance.global_position = global_position
 		get_parent().add_child(ratInstance)
 		queue_free()
-		
+		GlobalVariables.RatCount = GlobalVariables.RatCount + 1
 	move_and_slide()
 
 

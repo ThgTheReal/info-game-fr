@@ -7,7 +7,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if GlobalVariables.startNextRound == true:
+		$Timer.start()
+		
 
 @export var barrel = preload("res://Objects/Barrel/Barrel.tscn")
 func _on_timer_timeout() -> void:
@@ -18,4 +20,3 @@ func _on_timer_timeout() -> void:
 			barrelInst.global_position = spawn_point.global_position
 			add_child(barrelInst)
 			
-	$Timer.start()
