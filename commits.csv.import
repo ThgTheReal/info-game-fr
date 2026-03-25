@@ -3,7 +3,6 @@
 importer="csv_translation"
 type="Translation"
 uid="uid://hg3eaqiqcsnm"
-valid=false
 
 [deps]
 
@@ -11,5 +10,7 @@ source_file="res://commits.csv"
 
 [params]
 
-compress=true
+compress=1
 delimiter=0
+unescape_keys=false
+unescape_translations=true
