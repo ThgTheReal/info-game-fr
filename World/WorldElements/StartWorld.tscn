@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=4 uid="uid://ca5ojkixell6m"]
 
-[ext_resource type="Script" uid="uid://ctxtpwd6q8l3d" path="res://World/WorldTypes/StartWorld/StartWorld.gd" id="1_h0fr5"]
-[ext_resource type="Texture2D" uid="uid://dcx2sfs6164df" path="res://World/pixil-frame-0 (8).png" id="5_h1jyb"]
-[ext_resource type="Script" uid="uid://c2ykyfvdtmwsn" path="res://World/WorldTypes/StartWorld/barrel_points.gd" id="5_i3wy8"]
-[ext_resource type="PackedScene" uid="uid://tkvgmcnuh5f" path="res://Objects/Campfire/campfire.tscn" id="6_h1jyb"]
-[ext_resource type="AudioStream" uid="uid://b1kj0n5l5vx4m" path="res://Music/Pixelated_Onslaught.mp3" id="6_kj34h"]
+[ext_resource type="Script" uid="uid://ctxtpwd6q8l3d" path="res://World/WorldTypes/StartWorld/StartWorld.gd" id="1_mlpfn"]
+[ext_resource type="Texture2D" uid="uid://dcx2sfs6164df" path="res://World/pixil-frame-0 (8).png" id="2_hwvj2"]
+[ext_resource type="Script" uid="uid://c2ykyfvdtmwsn" path="res://World/WorldTypes/StartWorld/barrel_points.gd" id="3_a44i1"]
+[ext_resource type="PackedScene" uid="uid://tkvgmcnuh5f" path="res://Objects/Campfire/campfire.tscn" id="4_p0gi3"]
+[ext_resource type="AudioStream" uid="uid://b1kj0n5l5vx4m" path="res://Music/Pixelated_Onslaught.mp3" id="5_q47xs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kj34h"]
-texture = ExtResource("5_h1jyb")
+texture = ExtResource("2_hwvj2")
 separation = Vector2i(1, 1)
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
@@ -439,7 +439,7 @@ physics_layer_1/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_kj34h")
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_h0fr5")
+script = ExtResource("1_mlpfn")
 metadata/_edit_horizontal_guides_ = [315.0, -1995.0, -998.0]
 metadata/_edit_vertical_guides_ = [-62.0]
 
@@ -460,15 +460,15 @@ motion_scale = Vector2(0.1, 0.1)
 motion_scale = Vector2(0.2, 0.2)
 
 [node name="Spawners" type="Node2D" parent="."]
-script = ExtResource("5_i3wy8")
+script = ExtResource("3_a44i1")
 
 [node name="Timer" type="Timer" parent="Spawners"]
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 autostart = true
 
 [node name="BarrelShootSpot" type="Node2D" parent="Spawners"]
-position = Vector2(471, -882)
+position = Vector2(632, -413)
 
 [node name="BarrelShootSpot2" type="Node2D" parent="Spawners"]
 position = Vector2(312, -364)
@@ -476,19 +476,28 @@ position = Vector2(312, -364)
 [node name="BarrelShootSpot3" type="Node2D" parent="Spawners"]
 position = Vector2(1272, -770)
 
+[node name="BarrelShootSpot4" type="Node2D" parent="Spawners"]
+position = Vector2(295, -843)
+
+[node name="BarrelShootSpot5" type="Node2D" parent="Spawners"]
+position = Vector2(942, -1764)
+
+[node name="BarrelShootSpot6" type="Node2D" parent="Spawners"]
+position = Vector2(1413, -2646)
+
+[node name="BarrelShootSpot7" type="Node2D" parent="Spawners"]
+position = Vector2(1161, -31)
+
+[node name="BarrelShootSpot8" type="Node2D" parent="Spawners"]
+position = Vector2(601, -151)
+
 [node name="Campfires" type="Node2D" parent="."]
 
-[node name="Campfirer" parent="Campfires" instance=ExtResource("6_h1jyb")]
-position = Vector2(1116, 52)
-
-[node name="Campfirer2" parent="Campfires" instance=ExtResource("6_h1jyb")]
-position = Vector2(727, -584)
-
-[node name="Campfirer3" parent="Campfires" instance=ExtResource("6_h1jyb")]
-position = Vector2(435, -1543)
+[node name="Campfirer" parent="Campfires" instance=ExtResource("4_p0gi3")]
+position = Vector2(729, -593)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_kj34h")
+stream = ExtResource("5_q47xs")
 volume_db = -80.0
 pitch_scale = 0.8
 autoplay = true
