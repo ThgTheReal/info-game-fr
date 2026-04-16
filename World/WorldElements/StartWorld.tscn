@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://ca5ojkixell6m"]
 
-[ext_resource type="Script" uid="uid://ctxtpwd6q8l3d" path="res://World/WorldTypes/StartWorld/StartWorld.gd" id="1_mlpfn"]
+[ext_resource type="Script" uid="uid://ctxtpwd6q8l3d" path="res://World/StartWorld.gd" id="1_mlpfn"]
 [ext_resource type="Texture2D" uid="uid://dcx2sfs6164df" path="res://World/pixil-frame-0 (8).png" id="2_hwvj2"]
 [ext_resource type="Script" uid="uid://c2ykyfvdtmwsn" path="res://World/WorldTypes/StartWorld/barrel_points.gd" id="3_a44i1"]
 [ext_resource type="PackedScene" uid="uid://tkvgmcnuh5f" path="res://Objects/Campfire/campfire.tscn" id="4_p0gi3"]

@@ -55,7 +55,7 @@ offset_right = 8.0
 offset_bottom = 10.83197
 
 [node name="Label" type="Label" parent="SettingsMenue"]
-layout_mode = 0
+layout_mode = 1
 offset_left = 344.0
 offset_top = 186.0
 offset_right = 836.0
@@ -64,15 +64,29 @@ offset_bottom = 356.0
 [node name="Back" type="Button" parent="SettingsMenue"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
 offset_left = 470.0
 offset_top = 419.0
-offset_right = -442.0
-offset_bottom = -184.0
+offset_right = 723.0
+offset_bottom = 477.0
 text = "Back
 "
 icon_alignment = 1
+
+[node name="Sound" type="Label" parent="SettingsMenue"]
+layout_mode = 1
+offset_left = 535.0
+offset_top = 294.0
+offset_right = 619.0
+offset_bottom = 317.0
+text = "Lautstärke"
+
+[node name="HSlider" type="HSlider" parent="SettingsMenue"]
+layout_mode = 1
+offset_left = 477.0
+offset_top = 319.0
+offset_right = 686.0
+offset_bottom = 335.0
+value = 50.0
 
 [connection signal="pressed" from="Menue/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menue/Settings" to="." method="_on_settings_pressed"]
